@@ -50,7 +50,8 @@ class Categories extends Component {
               imageURL={x.imageURL}
               category={x.category}
               likes={x.likes}
-              created={x.created}>
+              created={x.created}
+              objectId={x.objectId}>
             </FurnitureCard>)}
         </ul>
       </section>
