@@ -8,10 +8,26 @@ export const getAll = (category = '') => {
   return fetch(furnitureURL)
     .then(res => res.json())
     .catch(error => console.log(error));
-}
+};
 
 export const getOne = (objectId) => {
   return fetch(`${URL}/${objectId}`)
     .then(res => res.json())
     .catch(error => console.log(error));
-}
+};
+
+export const create = (designerName, description, imageURL, category) => {
+  let furniture = {
+    name: designerName,
+    description,
+    imageURL,
+    category
+  }
+  return fetch(URL, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(furniture)
+  });
+};

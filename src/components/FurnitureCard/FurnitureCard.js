@@ -15,7 +15,7 @@ const FurnitureCard = ({
         <Link to={`/furnitures/details/${objectId}`}><button className="btn">Details</button></Link>
       
       </div>
-      <p className="created-at">{created}</p>
+      <p className="created-at">{new Date(created).toLocaleDateString()}</p>
     </li>
   )
 }
