@@ -4,19 +4,52 @@ nav.navbar {
   justify-content: flex-end;
   align-self: center;
   letter-spacing: 0.05rem;
-  background-color: antiquewhite;
-  padding: 0.8rem 1rem;
-  color: blueviolet;
+  background-color: white;
+  /* padding: 0.8rem 1rem; */
+  font-family: Arial, Helvetica, sans-serif;
+
 }
 
-#site-header > nav > section.navbar-dashboard {
+.furn-design-logo {
+  /* font-family: 'Dancing Script', cursive; */
+  font-family: 'Kaushan Script', cursive;
+  color: rgb(48, 231, 231);
+  list-style: none;
+  text-decoration: none;
+  font-size: 2em;
+  width: 3em;
+  margin-left: 1em;
+  margin-right: 2em;
+ 
+}
+
+#site-header > nav > section > div.first-bar > a:nth-child(2) {
+  margin-right: 1em;
+  text-decoration: none;
+  color: rgb(70, 70, 70);
+  font-size: 1.3em;
+}
+
+#site-header > nav > section > div.first-bar > a:nth-child(2):hover {
+  color: rgb(38, 202, 202);
+}
+
+#site-header > nav > section > div.first-bar > a:nth-child(3) {
+  text-decoration: none;
+  color: rgb(70, 70, 70);
+  font-size: 1.3em;
+}
+
+#site-header > nav > section > div.first-bar > a:nth-child(3):hover {
+  color: rgb(38, 202, 202);
+}
+
+/* #site-header > nav > section.navbar-dashboard {
   list-style: none;
   text-decoration: none;
   align-self: center;
-  font-weight: bold;
-  font-size: 1.5rem;
   color: aqua;
-}
+} */
 
 nav.navbar ul {
   background: transparent;
@@ -26,9 +59,12 @@ nav.navbar ul {
 }
 
 nav.navbar ul li {
-  display: block;
+  float: right;
   list-style: none outside;
   position: relative;
+  margin-right: 1em;
+  color: rgb(38, 202, 202);
+  font-size: 1.3em;
 }
 
 nav.navbar ul li a {
@@ -36,14 +72,17 @@ nav.navbar ul li a {
   padding: 0.4rem 0.8rem;
   border-radius: 0.4rem;
   text-decoration: none;
+  color:rgb(70, 70, 70);
+
 }
 
 .button:hover, 
 nav.navbar ul li a:hover,
 nav.navbar ul li:hover > a {
-  background: yellow;
-  color: brown;
-  font-weight: bold;
+  background: rgb(255, 255, 255);
+  color: rgb(38, 202, 202);
+  text-decoration: none;
+  /* font-weight: bold; */
 }
 
 .dashboard nav {
@@ -59,9 +98,18 @@ nav.navbar ul li:hover > a {
 .navbar .first-bar {
   display: flex;
   align-items: center;
+  text-decoration: none;
 }
 
-.navbar .first-bar a {
+.bottom-header {
+  border-top: 1.5px solid rgba(161, 161, 161, 0.616);
+  border-bottom: 1.5px solid rgba(161, 161, 161, 0.616);
+  color: transparent;
+  background-color: rgba(126, 126, 126, 0.13);
+  font-size: 1.3em;
+}
+
+/* .navbar .first-bar a {
   color: rgb(10, 40, 66);
   margin-right: 0.5rem;
-}
+} */

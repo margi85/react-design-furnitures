@@ -13,20 +13,40 @@ const FurnitureDetails = ({
       .then(res => setFurniture(res));
   }, [match]);
 
-  return (
-    <section className="otherFurniture">
-      <h3>Name: {furniture.name}</h3>
-      <p>Category: {furniture.category}</p>
-      <p className="img"><img src={furniture.imageURL} /></p>
-      <p>Furniture counter: {furniture.likes} <a href="#"><button className="button">Like</button></a></p>
-      <p className="description">{furniture.description}</p>
-      <p className="created">{new Date(furniture.created).toLocaleDateString()}</p>
+  const onFurnButtonClickHandler = () => {
+    let incrementedLikes = furniture.likes + 1;
+    console.log(match.params);
+    furnitureServices.furniture(match.params.furnitureId, incrementedLikes)
+      .then((updatedFurniture) => {
+        setFurniture(state => ({ ...state, likes: Number(updatedFurniture.likes) }))
+      })
+  }
 
-      <div className="furn-info">
-        <Link to={`/furnitures/details/${furniture.objectId}/edit`}><button className="button">Edit</button></Link>
-        <Link to="#"><button className="button">Delete</button></Link>
+  return (
+    <section className="detailsOtherFurniture">
+      <div className="container img">
+        <p className="img"><img src={furniture.imageURL} /></p>
       </div>
 
+      <div className="container">
+        <div className="info">
+        <p>Designer name: <span><h3>{furniture.name}</h3></span></p>
+        <p>Category: <span>{furniture.category}</span></p>
+        <p>Project raiting: {furniture.likes}
+          <button className="button" onClick={onFurnButtonClickHandler}>
+            Like
+          </button>
+        </p>
+
+        <p className="description">Description: {furniture.description}</p>
+        <p className="created">Created date: {new Date(furniture.created).toLocaleDateString()}</p>
+
+        <div className="furn-info">
+          <Link to={`/furnitures/details/${furniture.objectId}/edit`}><button className="button">Edit</button></Link>
+          <Link to="#"><button className="button">Delete</button></Link>
+        </div>
+        </div>
+      </div>
     </section>
   );
 };

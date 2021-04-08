@@ -21,7 +21,8 @@ export const create = (designerName, description, imageURL, category) => {
     name: designerName,
     description,
     imageURL,
-    category
+    category,
+    likes: 0
   }
   return fetch(URL, {
     method: 'POST',
@@ -32,16 +33,6 @@ export const create = (designerName, description, imageURL, category) => {
   });
 };
 
-// export const update = (furniture) => {
-//   return fetch(`${URL}/${furniture.objectId}`, {
-//     method: 'PUT',
-//     headers: {
-//       'Content-Type': 'application/json'
-//     },
-//     body: JSON.stringify(furniture)
-//   });
-// };
-
 export const update = (furnitureId, furniture) => {
   return fetch(`${URL}/${furnitureId}`, {
     method: 'PUT',
@@ -51,3 +42,14 @@ export const update = (furnitureId, furniture) => {
     body: JSON.stringify(furniture)
   });
 };
+
+export const furniture = (furnitureId, likes) => {
+  return fetch(`${URL}/${furnitureId}`, {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({likes})
+  })
+  .then(res => res.json());
+}
