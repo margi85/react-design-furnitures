@@ -1,8 +1,12 @@
 #site-footer {
-  background-color: rgb(255, 255, 255);
-  color: rgba(0, 0, 0, 0.795);
   text-align: center;
   font-size: 1.3em;
-  border-top: 1.5px solid rgb(197, 197, 197);
+  margin-top: 2em;
+  background-color: rgb(218, 218, 218);
+ 
+}
 
+#site-footer > p {
+  padding: 0.5em;
+  color: white;
 }

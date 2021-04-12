@@ -25,12 +25,12 @@ const FurnitureDetails = ({
   return (
     <section className="detailsOtherFurniture">
       <div className="container img">
-        <p className="img"><img src={furniture.imageURL} /></p>
+        <p className="img"><img src={furniture.imageURL} alt="some pic" /></p>
       </div>
 
       <div className="container">
         <div className="info">
-        <p>Designer name: <span><h3>{furniture.name}</h3></span></p>
+        <p>Designer name: <span>{furniture.name}</span></p>
         <p>Category: <span>{furniture.category}</span></p>
         <p>Project raiting: {furniture.likes}
           <button className="button" onClick={onFurnButtonClickHandler}>

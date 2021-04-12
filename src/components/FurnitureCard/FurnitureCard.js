@@ -8,7 +8,7 @@ const FurnitureCard = ({
     <li className="furniture-card">
       <h3>Designer-name: {name}</h3>
       <p>Category: {category}</p>
-      <p className="img"><img src={imageURL} /></p>
+      <p className="img"><img src={imageURL} alt="some pic"/></p>
       <div className="furn-info">
         <Link to="#"><button className="btn">Like</button></Link>
         <span>{likes}</span>

@@ -7,6 +7,7 @@ import EditFurnitureDetails from './components/EditFurnitureDetails/EditFurnitur
 import FurnitureDetails from './components/FurnitureDetails/FurnitureDetails';
 import CreateFurniture from './components/CreateFurniture/CreateFurniture';
 
+
 function App() {
   return (
     <div className="container">
@@ -19,6 +20,7 @@ function App() {
         <Route path="/furnitures/details/:furnitureId/edit" component={EditFurnitureDetails}/>
 
         <Route path="/furniture/create" component={CreateFurniture}/>
+  
       </Switch>
 
       <Footer />

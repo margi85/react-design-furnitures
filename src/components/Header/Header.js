@@ -25,13 +25,13 @@ const Header = () => {
           </div>
         </section>
       </nav>
-      <div className="bottom-header">fa</div>
+      {/* <div className="bottom-header">fa</div> */}
       <style>
         @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
       </style>
       <style>
-@import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap');
-</style>
+      @import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap');
+      </style>
     </header>
   )
 };

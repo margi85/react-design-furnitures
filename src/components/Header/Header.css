@@ -13,7 +13,7 @@ nav.navbar {
 .furn-design-logo {
   /* font-family: 'Dancing Script', cursive; */
   font-family: 'Kaushan Script', cursive;
-  color: rgb(48, 231, 231);
+  color: lightpink;
   list-style: none;
   text-decoration: none;
   font-size: 2em;
@@ -31,7 +31,7 @@ nav.navbar {
 }
 
 #site-header > nav > section > div.first-bar > a:nth-child(2):hover {
-  color: rgb(38, 202, 202);
+  color: lightpink;
 }
 
 #site-header > nav > section > div.first-bar > a:nth-child(3) {
@@ -41,7 +41,7 @@ nav.navbar {
 }
 
 #site-header > nav > section > div.first-bar > a:nth-child(3):hover {
-  color: rgb(38, 202, 202);
+  color: lightpink;
 }
 
 /* #site-header > nav > section.navbar-dashboard {
@@ -63,7 +63,7 @@ nav.navbar ul li {
   list-style: none outside;
   position: relative;
   margin-right: 1em;
-  color: rgb(38, 202, 202);
+  color: lightpink;
   font-size: 1.3em;
 }
 
@@ -80,7 +80,7 @@ nav.navbar ul li a {
 nav.navbar ul li a:hover,
 nav.navbar ul li:hover > a {
   background: rgb(255, 255, 255);
-  color: rgb(38, 202, 202);
+  color: lightpink;
   text-decoration: none;
   /* font-weight: bold; */
 }
