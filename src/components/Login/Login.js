@@ -17,7 +17,7 @@ const Login = ({
       .then(data => {
         localStorage.setItem('user', JSON.stringify(data));
         history.push('/');
-      });
+      })
   }
 
   return (

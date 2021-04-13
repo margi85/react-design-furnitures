@@ -1,7 +1,17 @@
 import './Header.css';
 import { Link } from 'react-router-dom';
+import { logout } from '../../services/authService';
 
 const Header = () => {
+
+  function logoutHandler () {
+    logout()
+    .then(data => {
+      localStorage.removeItem('user');
+      window.location.replace('/')
+    })
+  };
+
   const loggedUser = localStorage.getItem('user') 
     && JSON.parse(localStorage.getItem('user'));
   return (
@@ -16,7 +26,7 @@ const Header = () => {
           <div className="second-bar">
             <ul>
               <li>Welcome, {(loggedUser && loggedUser.email) || 'Mate'}!</li>
-              <li><a href="#">Logout</a></li>
+              <li><button type="button" onClick={logoutHandler}>Logout</button></li>
             </ul>
             <section className="navbar-anonymous">
               <ul>

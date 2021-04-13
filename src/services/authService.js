@@ -7,7 +7,6 @@ export const login = (email, password) => {
     login: email,
     password 
   }
-
   return fetch(`${URL}/login`, {
     method: 'POST',
     headers: {
@@ -23,9 +22,7 @@ export const register = (name, email, password, phone, ) => {
     email,
     password,
     phone,
-    
   }
-
   return fetch(`${URL}/register`, {
     method: 'POST',
     headers: {
@@ -34,3 +31,17 @@ export const register = (name, email, password, phone, ) => {
     body: JSON.stringify(user)
   });
 }
+
+export const logout = () => {
+const user = JSON.parse(localStorage.getItem('user'))
+const userToken = user['user-token'];
+console.log(user);
+console.log(userToken);
+
+  return fetch(`${URL}/logout`, {
+    method: 'GET',
+    headers: {
+      'user-token': userToken
+    },
+  });
+};
