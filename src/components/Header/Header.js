@@ -2,6 +2,8 @@ import './Header.css';
 import { Link } from 'react-router-dom';
 
 const Header = () => {
+  const loggedUser = localStorage.getItem('user') 
+    && JSON.parse(localStorage.getItem('user'));
   return (
     <header id="site-header">
       <nav className="navbar">
@@ -13,13 +15,13 @@ const Header = () => {
           </div>
           <div className="second-bar">
             <ul>
-              <li>Welcome, Mate!</li>
+              <li>Welcome, {(loggedUser && loggedUser.email) || 'Mate'}!</li>
               <li><a href="#">Logout</a></li>
             </ul>
             <section className="navbar-anonymous">
               <ul>
-                <li><a href="#">Register</a></li>
-                <li><a href="#">Login</a></li>
+                <li><Link to="/register">Register</Link></li>
+                <li><Link to="/login">Login</Link></li>
               </ul>
             </section>
           </div>
