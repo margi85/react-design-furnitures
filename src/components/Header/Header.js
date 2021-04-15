@@ -1,9 +1,13 @@
 import './Header.css';
 import { Link } from 'react-router-dom';
 import { logout } from '../../services/authService';
+import { useEffect,  } from 'react';
 
-const Header = () => {
-
+const Header = ({
+  isAuthenticated,
+  email
+}) => {
+ 
   function logoutHandler () {
     logout()
     .then(data => {
@@ -12,8 +16,15 @@ const Header = () => {
     })
   };
 
-  const loggedUser = localStorage.getItem('user') 
-    && JSON.parse(localStorage.getItem('user'));
+  useEffect(() => {
+    const user = localStorage.getItem('user') && JSON.parse(localStorage.getItem('user'));
+    if (user) {
+      const userToken = user['user-token'];
+      const eMail = user['email']
+    console.log(userToken, eMail);
+    }   
+  }, [isAuthenticated])
+  
   return (
     <header id="site-header">
       <nav className="navbar">
@@ -25,7 +36,7 @@ const Header = () => {
           </div>
           <div className="second-bar">
             <ul>
-              <li>Welcome, {(loggedUser && loggedUser.email) || 'Mate'}!</li>
+              <li>Welcome {email}!</li>
               <li><button type="button" onClick={logoutHandler}>Logout</button></li>
             </ul>
             <section className="navbar-anonymous">

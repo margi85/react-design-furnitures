@@ -8,22 +8,42 @@ import EditFurnitureDetails from './components/EditFurnitureDetails/EditFurnitur
 import FurnitureDetails from './components/FurnitureDetails/FurnitureDetails';
 import CreateFurniture from './components/CreateFurniture/CreateFurniture';
 import Register from './components/Register/Register';
-
+import { useEffect, useState } from 'react';
 
 function App() {
+  const [loggedUser, setUser] = useState(null);
+
+  useEffect(() => {
+    const loggedUser = localStorage.getItem('user') 
+    && JSON.parse(localStorage.getItem('user'));
+
+    if (loggedUser) {
+      setUser(loggedUser)
+      console.log('Logged In');
+    } else {
+      setUser(null)
+      console.log('Logged Out');
+    }
+  }, []);
+
+  const authInfo = {
+    isAuthenticated: Boolean(loggedUser),
+    email: loggedUser && loggedUser.email 
+  };
+
   return (
     <div className="container">
-      <Header />
-
+      <Header {...authInfo} />
+      {/* <h1>{loggedUser?.email}</h1> */}
       <Switch>
-        <Route path="/" exact component={Categories} />
-        <Route path="/categories/:category" component={Categories} />
-        <Route path="/furnitures/details/:furnitureId" exact component={FurnitureDetails}/>
-        <Route path="/furnitures/details/:furnitureId/edit" component={EditFurnitureDetails}/>
-        <Route path="/login" component={Login}/>
-        <Route path="/register" component={Register}/>
+        <Route path="/" exact render={props => <Categories {...props} {...authInfo} />} />
+        <Route path="/categories/:category" render={props => <Categories {...props} {...authInfo} />} />
+        <Route path="/furnitures/details/:furnitureId" exact render={props => <FurnitureDetails {...props} {...authInfo} />}/>
+        <Route path="/furnitures/details/:furnitureId/edit" render={props => <EditFurnitureDetails {...props} {...authInfo} />}/>
+        <Route path="/login" render={props => <Login {...props} {...authInfo} />}/>
+        <Route path="/register" render={props => <Register {...props} />}/>
 
-        <Route path="/furniture/create" component={CreateFurniture}/>
+        <Route path="/furniture/create" render={props => <CreateFurniture {...props} {...authInfo} />}/>
   
       </Switch>
 

@@ -1,9 +1,12 @@
 import './Login.css';
 import { login } from '../../services/authService';
+import { useState } from 'react';
 
 const Login = ({
   history
 }) => {
+  const [error, setError] = useState('');
+
   const onLoginFormSubmitHandler = (e) => {
     e.preventDefault();
     const email = e.target.email.value;
@@ -15,9 +18,14 @@ const Login = ({
         return res.json()
       })
       .then(data => {
-        localStorage.setItem('user', JSON.stringify(data));
-        history.push('/');
+        if (data.code) {
+          setError(data.message);
+        } else {
+          localStorage.setItem('user', JSON.stringify(data));
+          window.location.replace('/')
+        };
       })
+      .catch((error) => console.log('Error:', error));
   }
 
   return (
@@ -28,13 +36,25 @@ const Login = ({
         <legend>Login</legend>
         <p className="field">
           <label htmlFor="email">Email</label>
-          <input type="email" name="email" id="email" placeholder="Email" />
+          <input type="email"
+            name="email"
+            id="email"
+            placeholder="Email"
+          />
+          <br />
+
         </p>
         <p className="field">
           <label htmlFor="password">Password</label>
-          <input type="password" name="password" id="password" placeholder="Password" />
+          <input type="password"
+            name="password"
+            id="password"
+            placeholder="Password"
+          />
+          <br />
         </p>
         <input className="submit-login" type="submit" value="Login" />
+        <div style={{color : "red"}}>{error}</div>
       </div>
     </form>
 

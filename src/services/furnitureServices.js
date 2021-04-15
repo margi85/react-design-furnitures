@@ -16,13 +16,14 @@ export const getOne = (objectId) => {
     .catch(error => console.log(error));
 };
 
-export const create = (designerName, description, imageURL, category) => {
+export const create = (designerName, description, imageURL, category, ownerId) => {
   let furniture = {
     name: designerName,
     description,
     imageURL,
     category,
-    likes: 0
+    likes: 0,
+    ownerId
   }
   return fetch(URL, {
     method: 'POST',
