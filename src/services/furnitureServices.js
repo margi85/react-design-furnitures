@@ -50,14 +50,26 @@ export const update = (furnitureId, furniture) => {
   });
 };
 
+export const deleteObject = (furnitureId) => {
+  const user = JSON.parse(localStorage.getItem('user'))
+  const userToken = user['user-token'];
+
+  return fetch(`${URL}/${furnitureId}`, {
+    method: 'DELETE',
+    headers: {
+      'user-token': userToken
+    },
+  });
+};
+
 export const furniture = (furnitureId, likes) => {
   return fetch(`${URL}/${furnitureId}`, {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify({likes})
+    body: JSON.stringify({ likes })
   })
-  .then(res => res.json())
-  .catch((error) => console.log('Error:', error));;
+    .then(res => res.json())
+    .catch((error) => console.log('Error:', error));;
 }

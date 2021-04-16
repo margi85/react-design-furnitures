@@ -18,6 +18,7 @@ class MyFurnitures extends Component {
 
     furnitureServices.getMyFurnitures(userId)
       .then(res => this.setState({ myFurnitures: res }))
+      .catch((error) => console.log('Error:', error));
   }
 
   render() {

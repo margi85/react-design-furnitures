@@ -9,8 +9,16 @@ const FurnitureDetails = ({
   let [furniture, setFurniture] = useState({});
   const loggedUser = localStorage.getItem('user') && JSON.parse(localStorage.getItem('user'));
 
+  function deleteHandler () {
+    furnitureServices.deleteObject(furniture.objectId)
+    .then(() => {
+      localStorage.removeItem('objectId');
+      window.location.replace('/')
+    })
+  };
+
   useEffect(() => {
-    
+
     furnitureServices.getOne(match.params.furnitureId)
       .then(res => setFurniture(res));
   }, [match]);
@@ -32,21 +40,18 @@ const FurnitureDetails = ({
 
       <div className="container">
         <div className="info">
-          <p>Designer name: <span>{furniture.name}</span></p>
-          <p>Category: <span>{furniture.category}</span></p>
-          <p>Project raiting: {furniture.likes}
-            <button className="button" onClick={like}>
-              Like
-          </button>
-          </p>
-
-          <p className="description">Description: {furniture.description}</p>
-          <p className="created">Created date: {new Date(furniture.created).toLocaleDateString()}</p>
+          <p className="designer-name-details">Designer name: <span>{furniture.name}</span></p>
+          <p className="created-date">Created date: {new Date(furniture.created).toLocaleDateString()}</p>
+          <p className="category-p">Category: <span>{furniture.category}</span></p>
+          <p className="furn-likes-count">Project raiting: <span>{furniture.likes}</span></p>
+          <p><button className="button-like" onClick={like}>Like</button></p>
+          <p className="description-details">Description: <span>{furniture.description}</span></p>
+          
 
           {loggedUser && loggedUser.objectId === furniture.ownerId &&
-            <div className="furn-info">
-              <Link to={`/furnitures/details/${furniture.objectId}/edit`}><button className="button">Edit</button></Link>
-              <Link to="#"><button className="button">Delete</button></Link>
+            <div className="furn-info-box">
+              <Link to={`/furnitures/details/${furniture.objectId}/edit`}><button className="button-edit-det">Edit</button></Link>
+              <Link to="#"><button className="button-delete-det" onClick={deleteHandler}>Delete</button></Link>
             </div>
           }
         </div>

@@ -9,11 +9,20 @@ class CustomErrorBoundery extends React.Component {
     };
   }
 
-  componentDidCatch(error) {
-    console.log(error);
+  static getDerivedStateFromError() {
+    return {
+      hasError: true
+    }
+  }
+
+  componentDidCatch(error, errorInfo) {
+    console.log('error from componentDidCatch: ', error);
   }
 
   render() {
+    if (this.state.hasError) {
+      return <h1>Some Error Here</h1>
+    }
     return this.props.children;
   }
 }

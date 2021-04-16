@@ -17,6 +17,7 @@ class Categories extends Component {
   componentDidMount() {
     furnitureServices.getAll()
       .then(res => this.setState({ furnitures: res }))
+      .catch((error) => console.log('Error:', error));
   }
 
   componentDidUpdate(prevProps, prevState) {
