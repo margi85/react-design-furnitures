@@ -31,20 +31,26 @@ const Header = ({
         <section className="navbar-dashboard">
           <div className="first-bar">
             <Link className="furn-design-logo" to="/">Furniture designs</Link>
-            <Link className="button" to="#">My furniture</Link>
-            <Link className="button" to="/furniture/create">Add furniture</Link>
+            { isAuthenticated 
+              && <Link className="button" to="/my-furnitures">My Designes</Link> } 
+            { isAuthenticated 
+              && <Link className="button" to="/furniture/create">Add New</Link> }
           </div>
           <div className="second-bar">
-            <ul>
+            <ul>  
+              {isAuthenticated && 
+                <li><button className="btn-logout" type="button" onClick={logoutHandler}>Logout</button></li>
+              }
               <li>Welcome {email}!</li>
-              <li><button type="button" onClick={logoutHandler}>Logout</button></li>
             </ul>
-            <section className="navbar-anonymous">
-              <ul>
-                <li><Link to="/register">Register</Link></li>
-                <li><Link to="/login">Login</Link></li>
-              </ul>
-            </section>
+            {!isAuthenticated && 
+              <section className="navbar-anonymous">
+                <ul>
+                  <li><Link to="/register">Register</Link></li>
+                  <li><Link to="/login">Login</Link></li>
+                </ul>
+              </section>
+            }
           </div>
         </section>
       </nav>

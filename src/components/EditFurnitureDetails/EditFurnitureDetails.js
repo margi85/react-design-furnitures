@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import InputError from '../Shared/InputError/InputError';
 
 const EditFurnitureDetails = (
-  {match, history}
+  { match, history }
 ) => {
   console.log(match);
   const [furniture, setFurniture] = useState({});
@@ -23,7 +23,7 @@ const EditFurnitureDetails = (
     let furnitureId = match.params.furnitureId;
     const { name, description, imageURL, category } = e.target;
 
-    furnitureServices.update(furnitureId, {name: name.value, description: description.value, imageURL: imageURL.value, category: category.value})
+    furnitureServices.update(furnitureId, { name: name.value, description: description.value, imageURL: imageURL.value, category: category.value })
       .then(() => {
         history.push(`/furnitures/details/${furnitureId}`);
         return;
@@ -49,12 +49,13 @@ const EditFurnitureDetails = (
   }
 
   return (
-    <section className="edit-furniture">
+    <form onSubmit={onEditChangeHandler} className="edit-form">
 
-      <p>Furniture likes: <span>{furniture.likes}</span></p>
+      <img className="img-holder-edit" src="/furn-pic.jpg" alt="living room" />
 
-      <form onSubmit={onEditChangeHandler}>
-
+      <div className="cont-add-info">
+      <legend>Edit Your Furniture Information</legend>
+        <p className="likes-text">Furniture likes: <span>{furniture.likes}</span></p>
         <p className="field">
           <label htmlFor="name">Furniture designer</label>
           <span className="input">
@@ -66,7 +67,7 @@ const EditFurnitureDetails = (
         <p className="field">
           <label htmlFor="image">Image</label>
           <span className="input">
-            <input type="text" name="imageURL" id="image"  defaultValue={furniture.imageURL} />
+            <input type="text" name="imageURL" id="image" defaultValue={furniture.imageURL} />
           </span>
         </p>
 
@@ -85,7 +86,7 @@ const EditFurnitureDetails = (
         <p className="field">
           <label htmlFor="description">Description</label>
           <span className="input">
-            <textarea rows="8" cols="60" type="text" name="description"
+            <textarea rows="8" cols="40" type="text" name="description"
               id="description" onBlur={onDescriptionInputChangeHandler} defaultValue={furniture.description}></textarea>
             <InputError>{errorMessageDescription}</InputError>
             <span className="actions"></span>
@@ -93,10 +94,10 @@ const EditFurnitureDetails = (
         </p>
         {/* <textarea type="text" name="description" defaultValue={furniture.description}></textarea>
         <p className="img"><img src={furniture.imageURL} /></p> */}
-        <button className="button">Save</button>
+        <button className="button-edit-details">Save</button>
+      </div>
+    </form>
 
-      </form>
-    </section>
   );
 };
 

@@ -1,0 +1,14 @@
+.furnitures-list {
+  /* display: grid;
+  grid-template-columns: 1fr 1fr 1fr; */
+  column-count: 3;
+  background-color: rgb(241, 240, 240);
+  list-style-type: none;
+  margin: auto;
+  padding-top: 2em;
+  padding-right: 4em;
+  padding-left: 4em;
+  padding-bottom: 2em;
+  border-top: 1px dotted grey;
+  border-bottom: 1px dotted grey;
+}

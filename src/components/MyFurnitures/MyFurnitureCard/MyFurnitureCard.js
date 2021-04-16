@@ -1,7 +1,7 @@
-import './FurnitureCard.css';
+import './MyFurnitureCard.css';
 import { Link } from 'react-router-dom';
 
-const FurnitureCard = ({
+const MyFurnitureCard = ({
   name, description, likes, imageURL, created, category, objectId
 }) => {
   return (
@@ -22,4 +22,4 @@ const FurnitureCard = ({
   )
 }
 
-export default FurnitureCard;
+export default MyFurnitureCard;

@@ -16,6 +16,12 @@ export const getOne = (objectId) => {
     .catch(error => console.log(error));
 };
 
+export const getMyFurnitures = (ownerId) => {
+  return fetch(`${URL}?where=ownerId%3D'${ownerId}'`)
+    .then(res => res.json())
+    .catch(error => console.log(error));
+};
+
 export const create = (designerName, description, imageURL, category, ownerId) => {
   let furniture = {
     name: designerName,
@@ -52,5 +58,6 @@ export const furniture = (furnitureId, likes) => {
     },
     body: JSON.stringify({likes})
   })
-  .then(res => res.json());
+  .then(res => res.json())
+  .catch((error) => console.log('Error:', error));;
 }

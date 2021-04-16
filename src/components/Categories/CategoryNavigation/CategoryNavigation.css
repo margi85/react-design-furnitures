@@ -8,10 +8,13 @@
   padding: 0;
   overflow: hidden;
   background-color: #333333;
+  text-align:center;
 }
 
 .navbar-categories ul li {
-  float: left;
+  display:inline-block;
+  padding-left: 2em;
+  padding-right: 2em;
 }
 
 .navbar-categories li a {

@@ -1,0 +1,45 @@
+.furniture-card {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: white;
+  text-decoration: none;
+  display: inline-block;
+  box-sizing: border-box;
+  margin-top: 2em;
+  -webkit-box-shadow: 0px 1px 17px 2px rgba(0,0,0,0.55); 
+box-shadow: 0px 1px 17px 2px rgba(0,0,0,0.55);
+text-align: center;
+}
+
+.furniture-card h3 {
+  border-bottom: 2px dotted rgb(184, 181, 181);
+}
+
+.furniture-card .img {
+  margin-block-start: 0;
+}
+
+.furniture-card .img img {
+  width: 35em;
+  height: auto;
+}
+
+.btn-details {
+  background-color: rgb(201, 191, 192); 
+  font-size: 1.2em;
+  border: none;
+  color: white;
+  width: 100%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin-top: 1em
+}
+
+.btn-details:hover {
+  background-color: lightpink; 
+  color: black;
+  cursor: pointer;
+}

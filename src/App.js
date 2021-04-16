@@ -9,6 +9,8 @@ import FurnitureDetails from './components/FurnitureDetails/FurnitureDetails';
 import CreateFurniture from './components/CreateFurniture/CreateFurniture';
 import Register from './components/Register/Register';
 import { useEffect, useState } from 'react';
+import MyFurnitures from './components/MyFurnitures/MyFurnitures';
+import CustomErrorBoundery from './components/CustomErrorBoundery/CustomErrorBoundery';
 
 function App() {
   const [loggedUser, setUser] = useState(null);
@@ -35,6 +37,8 @@ function App() {
     <div className="container">
       <Header {...authInfo} />
       {/* <h1>{loggedUser?.email}</h1> */}
+
+      <CustomErrorBoundery>
       <Switch>
         <Route path="/" exact render={props => <Categories {...props} {...authInfo} />} />
         <Route path="/categories/:category" render={props => <Categories {...props} {...authInfo} />} />
@@ -42,11 +46,12 @@ function App() {
         <Route path="/furnitures/details/:furnitureId/edit" render={props => <EditFurnitureDetails {...props} {...authInfo} />}/>
         <Route path="/login" render={props => <Login {...props} {...authInfo} />}/>
         <Route path="/register" render={props => <Register {...props} />}/>
+        <Route path="/my-furnitures" render={props => <MyFurnitures {...props} {...authInfo} />}/>
 
         <Route path="/furniture/create" render={props => <CreateFurniture {...props} {...authInfo} />}/>
   
       </Switch>
-
+      </CustomErrorBoundery>
       <Footer />
     </div>
   );

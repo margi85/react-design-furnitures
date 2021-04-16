@@ -37,8 +37,7 @@ class Categories extends Component {
     console.log(this.state.furnitures);
     return (
       <section className="categories">
-        {/* <h1>Categories</h1> */}
-
+       
         <CategoryNavigation />
 
         <ul className="furnitures-list">

@@ -22,7 +22,7 @@ const Login = ({
           setError(data.message);
         } else {
           localStorage.setItem('user', JSON.stringify(data));
-          window.location.replace('/')
+          window.location.replace('/');
         };
       })
       .catch((error) => console.log('Error:', error));

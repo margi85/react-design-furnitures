@@ -3,7 +3,7 @@ import './Footer.css';
 const Footer = () => {
   return (
     <footer id="site-footer">
-      <p>©2021 design-furniture All rights reserved.</p>
+      <p>©2021 furniture-designs All rights reserved.</p>
     </footer>
   )
 }

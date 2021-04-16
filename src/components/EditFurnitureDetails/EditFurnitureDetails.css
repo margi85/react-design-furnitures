@@ -1,0 +1,33 @@
+.edit-form {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  width: 65em;
+  margin: 0 auto;
+}
+
+.img-holder-edit {
+  width: 370px;
+}
+
+.likes-text {
+  color: white;
+  text-align: center;
+  font-size: 1.3em;
+}
+
+.button-edit-details {
+  padding: 0.3em;
+  width: 100%;
+  margin-top: 2em;
+  background-color: rgb(150, 111, 117);
+  border: 1px solid rgb(150, 111, 117);
+  font-size: 1.1em;
+  font-weight: bold;
+  color: white;
+}
+
+.button-edit-details:hover {
+  background-color: white;
+  border: 1px solid white;
+  color: rgb(150, 111, 117);
+}
