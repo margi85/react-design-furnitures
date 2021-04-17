@@ -34,11 +34,18 @@ class Categories extends Component {
       })
   }
 
+  like(furnitureId, likes) {
+    furnitureServices.furniture(furnitureId, likes + 1)
+      .then((result) => {
+        this.setState(state => ({ furnitures: state.furnitures.map(x => x.objectId === furnitureId ? { ...x, likes: x.likes + 1 } : x) }))
+      })
+  }
+
   render() {
     console.log(this.state.furnitures);
     return (
       <section className="categories">
-       
+
         <CategoryNavigation />
 
         <ul className="furnitures-list">
@@ -51,7 +58,8 @@ class Categories extends Component {
               category={x.category}
               likes={x.likes}
               created={x.created}
-              objectId={x.objectId}>
+              objectId={x.objectId}
+              like={this.like.bind(this, x.objectId, x.likes)}>
             </FurnitureCard>)}
         </ul>
       </section>

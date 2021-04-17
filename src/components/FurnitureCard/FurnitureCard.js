@@ -2,8 +2,9 @@ import './FurnitureCard.css';
 import { Link } from 'react-router-dom';
 
 const FurnitureCard = ({
-  name, description, likes, imageURL, created, category, objectId
+  name, description, likes, imageURL, created, category, objectId, like
 }) => {
+
   return (
     <li className="furniture-card">
       
@@ -11,9 +12,7 @@ const FurnitureCard = ({
       <h3>Designer-name: <span>{name}</span></h3>
       <p>Category: {category}</p>
       <div className="furn-info">
-        {/* <Link to="#"><button className="btn">Like</button></Link> */}
-        <div>Likes: <span>{likes}</span></div>
-       
+        <p><button className="button-like" onClick={like}>Like</button><span> {likes}</span></p>
       </div>
       <p className="created-at">Created day: {new Date(created).toLocaleDateString()}</p>
       <Link to={`/furnitures/details/${objectId}`}><button className="btn-details">Details</button></Link>

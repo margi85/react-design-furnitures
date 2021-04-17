@@ -7,6 +7,7 @@ export const getAll = (category = '') => {
 
   return fetch(furnitureURL)
     .then(res => res.json())
+    .then(furnitures => furnitures.map(x => ({...x, likes: Number(x.likes)})))
     .catch(error => console.log(error));
 };
 
